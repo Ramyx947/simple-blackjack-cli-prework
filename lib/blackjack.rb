@@ -1,4 +1,5 @@
 
+
 def welcome
   puts "Welcome to the Blackjack Table"
 end
@@ -26,15 +27,15 @@ end
 
 
 def initial_round(deal_card)
- card_total=[ ]
- prompt_user
- if get_user_input=="d"
- 2.times do deal_card
- end
- else 
-   puts "No deal"
- end
-print #{display_card_total}
+ 
+  2.times {puts deal_card}
+ return sum(deal_card,deal_card)
+# cards=[ ]
+# 2.times do
+#   deal_card << cards
+# end
+# display_card_total= cards.each{|x|sum += x}
+# returns display_card_total
 end
 # describe "#initial_round" do
 
@@ -52,8 +53,18 @@ end
 # end
 def hit?(card_total)
   # code hit? here
-
- 
+prompt_user
+hit_reply = get_user_input
+if hit_reply  =="h"
+  deal_card
+  return card_total + deal_card
+elsif hit_reply =="s"
+return card_total
+else
+  invalid_command
+  prompt_user
+  return card_total
+end
 end
 
  def invalid_command
@@ -68,4 +79,4 @@ puts "Invalid command."
 # def runner
 #   # code runner here
 # end
-    
+ 
